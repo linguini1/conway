@@ -2,8 +2,8 @@
 __author__ = "Matteo Golin"
 
 # Imports
-from customtypes import Seed, GridDimension, Coordinates, GridField
-from classes.classic import ClassicCell
+from customtypes import Seed, GridDimension, Coordinates, GridField, Game
+from classes.cells.classic import ClassicCell
 
 # Constants
 NEIGHBOUR_VECTORS = [
@@ -18,9 +18,10 @@ class Grid:
 
     """Grid that hosts the cells."""
 
-    def __init__(self, dimensions: GridDimension, seed: Seed = None):
+    def __init__(self, dimensions: GridDimension, epochs: int, seed: Seed = None):
         self.columns, self.rows = dimensions
         self.seed = seed
+        self.epochs = epochs
         self.array = self.__initialize_array()
 
     def __initialize_array(self) -> GridField:
@@ -72,6 +73,13 @@ class Grid:
                 current_cell.advance_state()
 
         return self.array
+
+    def create_game(self) -> Game:
+
+        """Returns a generator containing all generations (epochs) of the game."""
+
+        for _ in range(self.epochs):
+            yield self.next_generation()
 
     def __repr__(self):
 

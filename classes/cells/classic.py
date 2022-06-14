@@ -2,7 +2,7 @@
 __author__ = "Matteo Golin"
 
 # Imports
-from .cell import Cell
+from .basecell import Cell
 
 
 # Class

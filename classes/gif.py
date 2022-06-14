@@ -3,7 +3,7 @@ __author__ = "Matteo Golin"
 
 # Imports
 from PIL import Image, ImageColor
-from classes.grid import Grid
+from classes.grid import Game
 from customtypes import GridField
 
 # CONSTANTS
@@ -15,11 +15,12 @@ FILENAME = "animation.gif"
 # Class
 class GIFExporter:
 
-    def __init__(self, grid: Grid, epochs: int, scale: int = 10):
-        self.grid = grid
-        self.size = grid.columns, grid.rows
-        self.epochs = epochs
+    def __init__(self, game: Game, size: tuple[int, int], scale: int = 10):
+        self.game = game
         self.scale = scale
+        self.size = size
+
+        # Storing frames
         self.frames = []
 
     def __create_image(self, snapshot: GridField) -> Image:
@@ -28,8 +29,8 @@ class GIFExporter:
 
         image = Image.new('RGB', self.size)
 
-        for y in range(self.grid.rows):
-            for x in range(self.grid.columns):
+        for y in range(self.size[1]):  # Rows
+            for x in range(self.size[0]):  # Columns
                 current_cell = snapshot[y][x]
 
                 # Decide on colour
@@ -50,9 +51,9 @@ class GIFExporter:
 
         """Creates images from grid values and stores them as frames."""
 
-        for _ in range(self.epochs):
-            snapshot = self.grid.next_generation()
-            self.frames.append(self.__create_image(snapshot))
+        for frame in self.game:
+            image = self.__create_image(frame)
+            self.frames.append(image)
 
     def export(self):
 
