@@ -16,10 +16,11 @@ FILENAME = "animation.gif"
 # Class
 class GIFExporter:
 
-    def __init__(self, grid: Grid, scale: int = 10, show_progress: bool = True):
+    def __init__(self, grid: Grid, scale: int = 10, frame_duration: int = 200, show_progress: bool = True):
         self.grid = grid
         self.size = grid.columns, grid.rows
         self.scale = scale
+        self.frame_duration = frame_duration
 
         # Progress bar
         self.show_progress = show_progress
@@ -83,6 +84,6 @@ class GIFExporter:
             format='GIF',
             append_images=self.frames,
             save_all=True,
-            duration=200,
+            duration=self.frame_duration,
             loop=0
         )

@@ -13,10 +13,10 @@ EPOCHS = 150
 def main():
 
     # Start parameters
-    dimensions = 20, 20
+    dimensions = 50, 50
     seed = [
         (10, 6), (10, 7), (10, 8), (10, 12), (10, 13), (10, 14),
-        (9, 10), (8, 10), (7, 10), (11, 10), (12, 10), (13, 10)
+        (9, 10), (8, 10), (7, 10), (11, 10), (12, 10), (13, 10), (13, 11)
     ]
 
     # Create game
@@ -30,6 +30,7 @@ def main():
     GIFExporter(
         grid=grid,
         scale=20,  # 20x the grid size,
+        frame_duration=100,
         show_progress=True,
     ).export()
 
