@@ -9,6 +9,6 @@ from classes.cells.basecell import Cell
 GridDimension = tuple[int, int]
 Coordinates = tuple[int, int]
 GridField = list[list[Cell]]
-Game = Generator[GridField]
+Game = Generator
 
 Seed = list[Coordinates]

@@ -6,7 +6,7 @@ from classes.grid import Grid
 from classes.gif import GIFExporter
 
 # Constants
-EPOCHS = 60
+EPOCHS = 150
 
 
 # Main
@@ -20,18 +20,18 @@ def main():
     ]
 
     # Create game
-    game = Grid(
+    grid = Grid(
         dimensions=dimensions,
         seed=seed,
         epochs=EPOCHS
-    ).create_game()
+    )
 
     # Export gif
     GIFExporter(
-        game=game,
-        size=dimensions,
-        scale=20,  # 20x the grid size
-    )
+        grid=grid,
+        scale=20,  # 20x the grid size,
+        show_progress=True,
+    ).export()
 
 
 if __name__ == '__main__':
