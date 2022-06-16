@@ -52,7 +52,7 @@ class GIFExporter:
 
         return image
 
-    def __create_frames(self, progress_bar: ChargingBar | None = None):
+    def __create_frames(self, progress_bar: ChargingBar = None):
 
         """Creates images from grid values and stores them as frames."""
 
