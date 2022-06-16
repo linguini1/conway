@@ -6,10 +6,6 @@ from classes.grid import Grid
 from classes.gif import GIFExporter
 from classes.config import Config
 
-# Constants
-EPOCHS = 150
-
-
 # Main
 def main():
 
@@ -22,18 +18,18 @@ def main():
 
     # Create game
     grid = Grid(
-        dimensions=(config.dimensions.columns, config.dimensions.rows),
+        dimensions=config.dimensions,
         seed=seed,
-        epochs=EPOCHS
+        epochs=config.epochs
     )
 
     # Export gif
     GIFExporter(
         grid=grid,
-        scale=20,  # 20x the grid size,
-        frame_duration=100,
+        scale=config.animation.scale,
+        frame_duration=config.animation.duration,
         show_progress=True,
-    ).export()
+    ).export(config.animation.colours)
 
 
 if __name__ == '__main__':

@@ -8,8 +8,7 @@ from classes.grid import Grid
 from customtypes import GridField
 
 # CONSTANTS
-DEFAULT_ALIVE = ImageColor.getrgb("#222323")
-DEFAULT_DEAD = ImageColor.getrgb("#f0f6f0")
+DEFAULT_COLOURS = "#222323", "#f0f6f0"
 FILENAME = "animation.gif"
 
 
@@ -28,11 +27,15 @@ class GIFExporter:
         # Storing frames
         self.frames = []
 
-    def __create_image(self, snapshot: GridField) -> Image:
+    def __create_image(self, snapshot: GridField, colours: tuple[str, str]) -> Image:
 
         """Returns an image based on the passed grid snapshot."""
 
         image = Image.new('RGB', self.size)
+        
+        # Unpack colours
+        dead, alive = colours
+        dead, alive = ImageColor.getrgb(dead), ImageColor.getrgb(alive)
 
         for y in range(self.grid.rows):  # Rows
             for x in range(self.grid.columns):  # Columns
@@ -40,9 +43,9 @@ class GIFExporter:
 
                 # Decide on colour
                 if current_cell.alive:
-                    colour = DEFAULT_ALIVE
+                    colour = alive
                 else:
-                    colour = DEFAULT_DEAD
+                    colour = dead
 
                 image.putpixel((x, y), colour)  # Place colour on image
 
@@ -52,26 +55,26 @@ class GIFExporter:
 
         return image
 
-    def __create_frames(self, progress_bar: ChargingBar = None):
+    def __create_frames(self, colours: tuple[str, str], progress_bar: ChargingBar = None):
 
         """Creates images from grid values and stores them as frames."""
 
         for frame in self.grid.create_game():
-            image = self.__create_image(frame)
+            image = self.__create_image(frame, colours)
             self.frames.append(image)
 
             # Show progress
             if progress_bar:
                 progress_bar.next()
 
-    def export(self):
+    def export(self, colours: tuple[str, str] = DEFAULT_COLOURS):
 
         """Exports a GIF file of the game."""
 
         # Create frames showing progress
         if self.show_progress:
             with ChargingBar("Creating frames", max=self.grid.epochs) as bar:
-                self.__create_frames(bar)
+                self.__create_frames(colours, bar)
             print("Saving GIF...")
 
         # Create frames without showing progress

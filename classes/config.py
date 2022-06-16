@@ -17,7 +17,25 @@ class Config:
         data = self.__load_from_file()  # Load data
 
         # Unpack data
+        dimensions = data["dimensions"]
+        animation = data["animation"]
+        colours = animation["colours"]
+
         self.epochs = data["epochs"]
+
+        self.dimensions = (
+            dimensions["columns"],
+            dimensions["rows"]
+        )
+
+        self.animation = Animation(
+            animation["duration"],
+            animation["scale"],
+            (
+                colours["dead"],
+                colours["alive"]
+            )
+        )
 
     @staticmethod
     def __load_from_file() -> dict:
@@ -29,20 +47,8 @@ class Config:
 
         return data
 
-
-@dataclass()
-class Dimensions:
-    rows: int
-    columns: int
-
-
-@dataclass()
-class Colours:
-    dead: str
-    alive: str
-
-
 @dataclass()
 class Animation:
     duration: int
-    colours: Colours
+    scale: int
+    colours: tuple[str, str]  # Dead, alive
