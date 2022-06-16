@@ -1,0 +1,14 @@
+{
+  "epochs": 10,
+  "dimensions": {
+    "rows": 50,
+    "columns": 50,
+  },
+  "animation":{
+    "duration": 100,
+    "colours": {
+      "dead": "f0f6f0",
+      "alive": "222323"
+    }
+  }
+}
