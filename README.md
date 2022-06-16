@@ -11,8 +11,9 @@ number of epochs you want the game to run for.
 Run the `.export()` method on the exporter and your game will be visible in the `animation.gif` file.
 
 ## Requirements
-- Python 3.10.0 or greater
-- Pillow
+- Python 3.9.2 greater
+- Pillow module
+- Progress module
 
 ## Features to be added
 - New cell types
