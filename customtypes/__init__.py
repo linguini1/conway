@@ -10,5 +10,3 @@ GridDimension = tuple[int, int]
 Coordinates = tuple[int, int]
 GridField = list[list[Cell]]
 Game = Generator
-
-Seed = list[Coordinates]

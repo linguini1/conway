@@ -47,6 +47,7 @@ class Config:
 
         return data
 
+
 @dataclass()
 class Animation:
     duration: int

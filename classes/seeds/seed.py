@@ -5,13 +5,14 @@ __author__ = "Matteo Golin"
 from customtypes import Coordinates
 from utils import add_vector
 
+
 # Class
 class Seed:
 
     """Base interface for seed class. Implements cartesian coordinate system."""
 
     def __init__(self) -> None:
-        self.coords: list[Coordinates] = None
+        self.coords: list[Coordinates] = []
 
     def translate(self, new_center: Coordinates) -> list[Coordinates]:
 
@@ -21,3 +22,6 @@ class Seed:
         """
 
         return [add_vector(coord, new_center) for coord in self.coords]
+
+    def __repr__(self):
+        return self.coords
