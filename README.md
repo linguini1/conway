@@ -14,9 +14,3 @@ Run the `.export()` method on the exporter and your game will be visible in the 
 - Python 3.9.2 greater
 - Pillow module
 - Progress module
-
-## Features to be added
-- New cell types
-- Seed library
-- Easier seed addition
-- Colour themes for gif art
