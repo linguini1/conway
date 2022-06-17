@@ -2,8 +2,9 @@
 __author__ = "Matteo Golin"
 
 # Imports
-from customtypes import Seed, GridDimension, Coordinates, GridField, Game, Cell
+from customtypes import GridDimension, Coordinates, GridField, Game, Cell
 from classes.cells.classic import ClassicCell
+from utils import add_vector
 
 # Constants
 NEIGHBOUR_VECTORS = [
@@ -18,7 +19,7 @@ class Grid:
 
     """Grid that hosts the cells."""
 
-    def __init__(self, dimensions: GridDimension, epochs: int, seed: Seed = None, cell_type: Cell = ClassicCell):
+    def __init__(self, dimensions: GridDimension, epochs: int, seed: list[Coordinates] = None, cell_type: Cell = ClassicCell):
         self.columns, self.rows = dimensions
         self.seed = seed
         self.epochs = epochs
@@ -33,7 +34,8 @@ class Grid:
         array = [[self.cell_type() for _ in range(self.columns)] for _ in range(self.rows)]
 
         # Add seed TODO
-        for x, y in self.seed:
+        for coord in self.seed:
+            x, y = coord
             array[y][x] = self.cell_type(alive=True)
 
         return array
@@ -92,13 +94,3 @@ class Grid:
             representation += "\n"
 
         return representation
-
-
-def add_vector(coords: Coordinates, vector: Coordinates) -> Coordinates:
-
-    """Returns the result of adding a vector to a coordinate pair."""
-
-    x, y = coords
-    X, Y = vector
-
-    return x + X, y + Y

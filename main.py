@@ -6,16 +6,14 @@ from classes.grid import Grid
 from classes.gif import GIFExporter
 from classes.config import Config
 from classes.cells.maze import MazeCell
+from classes.seeds.chaos import ChaosSeed
 
 # Main
 def main():
 
     # Start parameters
     config = Config()
-    seed = [
-        (10, 6), (10, 7), (10, 8), (10, 12), (10, 13), (10, 14),
-        (9, 10), (8, 10), (7, 10), (11, 10), (12, 10), (13, 10), (13, 11)
-    ]
+    seed = ChaosSeed(config.dimensions).translate((25, 25))
 
     # Create game
     grid = Grid(
