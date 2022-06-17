@@ -79,7 +79,7 @@ class GIFExporter:
 
         # Create frames without showing progress
         else:
-            self.__create_frames()  # Create the frames
+            self.__create_frames(colours)  # Create the frames
 
         gif = self.frames[0]  # Grab the first image as the base
         gif.save(
