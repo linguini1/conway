@@ -2,25 +2,35 @@
 __author__ = "Matteo Golin"
 
 # Imports
+# Structural classes
 from classes.grid import Grid
 from classes.gif import GIFExporter
 from classes.config import Config
+from utils import export_seed, previous_seed
+
+# Cells
 from classes.cells.maze import MazeCell
+from classes.cells.classic import ClassicCell
+
+# Seeds
 from classes.seeds.chaos import ChaosSeed
+from classes.seeds.glider import GliderSeed
+
 
 # Main
 def main():
 
     # Start parameters
     config = Config()
-    seed = ChaosSeed(config.dimensions).translate((25, 25))
+    seed = ChaosSeed(cell_number=int(0.1 * 50 * 50)).translate((25, 25))
+    export_seed(seed)  # Export seed
 
     # Create game
     grid = Grid(
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
-        cell_type=MazeCell,
+        cell_type=ClassicCell,
     )
 
     # Export gif

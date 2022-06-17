@@ -5,6 +5,7 @@ __author__ = "Matteo Golin"
 from customtypes import GridDimension, Coordinates, GridField, Game, Cell
 from classes.cells.classic import ClassicCell
 from utils import add_vector
+import pprint
 
 # Constants
 NEIGHBOUR_VECTORS = [
@@ -33,7 +34,7 @@ class Grid:
         # Creates the default array
         array = [[self.cell_type() for _ in range(self.columns)] for _ in range(self.rows)]
 
-        # Add seed TODO
+        # Add seed
         for coord in self.seed:
             x, y = coord
             array[y][x] = self.cell_type(alive=True)

@@ -12,7 +12,7 @@ class Seed:
     """Base interface for seed class. Implements cartesian coordinate system."""
 
     def __init__(self) -> None:
-        self.coords: list[Coordinates] = []
+        self.coordinates: list[Coordinates] = []
 
     def translate(self, new_center: Coordinates) -> list[Coordinates]:
 
@@ -21,7 +21,7 @@ class Seed:
         matches the passed center coordinate.
         """
 
-        return [add_vector(coord, new_center) for coord in self.coords]
+        return [add_vector(coord, new_center) for coord in self.coordinates]
 
     def __repr__(self):
-        return self.coords
+        return self.coordinates
