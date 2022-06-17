@@ -90,7 +90,7 @@ class Grid:
 
         """Returns a generator containing all generations (epochs) of the game."""
 
-        # TODO Implement a continuous mode where the game continues until it becomes stable
+        # Continues until game becomes static
         if self.continuous:
 
             previous = None

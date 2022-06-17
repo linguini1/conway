@@ -72,7 +72,7 @@ class GIFExporter:
         """Exports a GIF file of the game."""
 
         # Create frames showing progress
-        if self.show_progress:
+        if self.show_progress and not self.grid.continuous:
             with ChargingBar("Creating frames", max=self.grid.epochs) as bar:
                 self.__create_frames(colours, bar)
             print("Saving GIF...")

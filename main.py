@@ -24,12 +24,13 @@ def main():
     config = Config()
     seed = ChaosSeed(
         cell_number=int(
-            0.1  # Percentage of map to cover
+            0.2  # Percentage of map to cover
             * config.dimensions[0]
             * config.dimensions[1]
         ),
-        deviation=2
-    ).translate((10, 10))
+        deviation=6
+    ).translate((50, 50))
+    seed = previous_seed()
     export_seed(seed)  # Export seed
 
     # Create game
@@ -37,8 +38,8 @@ def main():
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
-        cell_type=ClassicCell,
-        continuous=True
+        cell_type=MazeCell,
+        continuous=False
     )
 
     # Export gif
