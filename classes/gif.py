@@ -90,3 +90,5 @@ class GIFExporter:
             duration=self.frame_duration,
             loop=0
         )
+
+        print(f"File {FILENAME} finished exporting.")

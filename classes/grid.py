@@ -20,11 +20,19 @@ class Grid:
 
     """Grid that hosts the cells."""
 
-    def __init__(self, dimensions: GridDimension, epochs: int, seed: list[Coordinates] = None, cell_type: Cell = ClassicCell):
+    def __init__(
+            self,
+            dimensions: GridDimension,
+            epochs: int,
+            seed: list[Coordinates] = None,
+            cell_type: Cell = ClassicCell,
+            continuous: bool = False
+    ):
         self.columns, self.rows = dimensions
         self.seed = seed
         self.epochs = epochs
         self.cell_type = cell_type
+        self.continuous = continuous
         self.array = self.__initialize_array()
 
     def __initialize_array(self) -> GridField:
@@ -76,14 +84,45 @@ class Grid:
                 current_cell = self.array[y][x]
                 current_cell.advance_state()
 
-        return self.array
+        return self.array.copy()
 
     def create_game(self) -> Game:
 
         """Returns a generator containing all generations (epochs) of the game."""
 
-        for _ in range(self.epochs):
-            yield self.next_generation()
+        # TODO Implement a continuous mode where the game continues until it becomes stable
+        if self.continuous:
+
+            previous = None
+
+            while True:
+                current = self.next_generation()
+                current_bool = [[cell.alive for cell in row] for row in current]
+
+                if self.__equal_generations(current_bool, previous):
+                    break
+
+                previous = current_bool
+                yield current
+
+        else:
+            for _ in range(self.epochs):
+                yield self.next_generation()
+
+    def __equal_generations(self, gen1: list[list[bool]], gen2: list[list[bool]]) -> bool:
+
+        """Returns true if two generations are exactly the same."""
+
+        # Base case
+        if gen1 is None or gen2 is None:
+            return False
+
+        for _ in range(self.rows):
+
+            if gen1[_] != gen2[_]:
+                return False
+
+        return True  # If all rows are equal, return true
 
     def __repr__(self):
 
