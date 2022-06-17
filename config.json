@@ -1,8 +1,8 @@
 {
-  "epochs": 150,
+  "epochs": 200,
   "dimensions": {
-    "rows": 50,
-    "columns": 50
+    "rows": 100,
+    "columns": 100
   },
   "animation": {
     "colours": {
@@ -10,6 +10,6 @@
       "alive": "#222323"
     },
     "duration": 100,
-    "scale": 20
+    "scale": 10
   }
 }

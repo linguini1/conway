@@ -22,7 +22,14 @@ def main():
 
     # Start parameters
     config = Config()
-    seed = ChaosSeed(cell_number=int(0.1 * 50 * 50)).translate((25, 25))
+    seed = ChaosSeed(
+        cell_number=int(
+            0.3  # Percentage of map to cover
+            * config.dimensions[0]
+            * config.dimensions[1]
+        ),
+        deviation=8
+    ).translate((40, 40))
     export_seed(seed)  # Export seed
 
     # Create game
