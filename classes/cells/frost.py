@@ -1,4 +1,4 @@
-# Default cell class
+# Frost cell class
 __author__ = "Matteo Golin"
 
 # Imports

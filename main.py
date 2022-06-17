@@ -5,6 +5,7 @@ __author__ = "Matteo Golin"
 from classes.grid import Grid
 from classes.gif import GIFExporter
 from classes.config import Config
+from classes.cells.maze import MazeCell
 
 # Main
 def main():
@@ -20,7 +21,8 @@ def main():
     grid = Grid(
         dimensions=config.dimensions,
         seed=seed,
-        epochs=config.epochs
+        epochs=config.epochs,
+        cell_type=MazeCell,
     )
 
     # Export gif
