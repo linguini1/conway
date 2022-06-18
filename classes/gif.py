@@ -75,12 +75,12 @@ class GIFExporter:
         if self.show_progress and not self.grid.continuous:
             with ChargingBar("Creating frames", max=self.grid.epochs) as bar:
                 self.__create_frames(colours, bar)
-            print("Saving GIF...")
 
         # Create frames without showing progress
         else:
             self.__create_frames(colours)  # Create the frames
 
+        print("Saving GIF...")
         gif = self.frames[0]  # Grab the first image as the base
         gif.save(
             fp=FILENAME,

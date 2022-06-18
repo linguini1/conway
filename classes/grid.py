@@ -26,7 +26,7 @@ class Grid:
             epochs: int,
             seed: list[Coordinates] = None,
             cell_type: Cell = ClassicCell,
-            continuous: bool = False
+            continuous: bool = False,
     ):
         self.columns, self.rows = dimensions
         self.seed = seed
@@ -93,16 +93,20 @@ class Grid:
         # Continues until game becomes static
         if self.continuous:
 
-            previous = None
-
+            previous: list[list[list[bool]]] = []
             while True:
                 current = self.next_generation()
                 current_bool = [[cell.alive for cell in row] for row in current]
 
-                if self.__equal_generations(current_bool, previous):
+                if current_bool in previous:
                     break
 
-                previous = current_bool
+                if len(previous) < 18:
+                    previous.append(current_bool)
+                else:
+                    previous.append(current_bool)
+                    previous.pop(0)
+
                 yield current
 
         else:
