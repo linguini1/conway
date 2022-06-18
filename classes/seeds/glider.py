@@ -11,7 +11,7 @@ class GliderSeed(Seed):
     """Basic glider object from the classic version of Conway's game of life."""
 
     def __init__(self):
-        super(GliderSeed, self).__init__()
+        super().__init__()
 
         self.coordinates = [
             (0, 1),
