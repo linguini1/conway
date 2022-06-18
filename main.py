@@ -15,6 +15,7 @@ from classes.cells.classic import ClassicCell
 # Seeds
 from classes.seeds.chaos import ChaosSeed
 from classes.seeds.glider import GliderSeed
+from classes.seeds.radiation import RadiationSeed
 
 
 # Main
@@ -30,7 +31,8 @@ def main():
         ),
         deviation=6
     ).translate((50, 50))
-    seed = previous_seed()
+    seed = RadiationSeed().translate((13, 13))
+    #seed = previous_seed()
     export_seed(seed)  # Export seed
 
     # Create game
@@ -38,8 +40,8 @@ def main():
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
-        cell_type=MazeCell,
-        continuous=True
+        cell_type=ClassicCell,
+        continuous=False
     )
 
     # Export gif
