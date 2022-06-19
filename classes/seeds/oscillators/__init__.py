@@ -6,7 +6,7 @@ from classes.seeds.seed import Seed
 
 
 # Classes
-class Pulsar(Seed):
+class PulsarSeed(Seed):
 
     """Radiation-symbol looking seed."""
 

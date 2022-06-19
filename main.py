@@ -15,8 +15,8 @@ from classes.cells.classic import ClassicCell
 # Seeds
 from classes.seeds import ChaosSeed
 from classes.seeds.spaceships import GliderSeed
-from classes.seeds.oscillators import Pulsar
-from classes.seeds.static import Square
+from classes.seeds.oscillators import PulsarSeed
+from classes.seeds.static import SquareSeed
 
 
 # Main
@@ -32,7 +32,7 @@ def main():
         ),
         deviation=6
     ).translate((50, 50))
-    seed = Pulsar().translate((13, 13))
+    seed = GliderSeed().translate((13, 13))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
@@ -50,7 +50,6 @@ def main():
         grid=grid,
         scale=config.animation.scale,
         frame_duration=config.animation.duration,
-        show_progress=True,
     ).export(config.animation.colours)
 
 
