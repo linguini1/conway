@@ -1,12 +1,12 @@
-# Radiation seed class
+# Oscillating seed classes
 __author__ = "Matteo Golin"
 
 # Imports
-from .seed import Seed
+from classes.seeds.seed import Seed
 
 
-# Class
-class RadiationSeed(Seed):
+# Classes
+class Pulsar(Seed):
 
     """Radiation-symbol looking seed."""
 

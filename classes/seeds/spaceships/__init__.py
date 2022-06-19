@@ -1,11 +1,11 @@
-# Glider seed class
+# Spaceship seeds
 __author__ = "Matteo Golin"
 
 # Imports
-from .seed import Seed
+from classes.seeds.seed import Seed
 
 
-# Class
+# Classes
 class GliderSeed(Seed):
     
     """Basic glider object from the classic version of Conway's game of life."""
@@ -20,3 +20,4 @@ class GliderSeed(Seed):
             (-1, 0),
             (-1, 1),
         ]
+

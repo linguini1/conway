@@ -13,9 +13,10 @@ from classes.cells.maze import MazeCell
 from classes.cells.classic import ClassicCell
 
 # Seeds
-from classes.seeds.chaos import ChaosSeed
-from classes.seeds.glider import GliderSeed
-from classes.seeds.radiation import RadiationSeed
+from classes.seeds import ChaosSeed
+from classes.seeds.spaceships import GliderSeed
+from classes.seeds.oscillators import Pulsar
+from classes.seeds.static import Square
 
 
 # Main
@@ -31,7 +32,7 @@ def main():
         ),
         deviation=6
     ).translate((50, 50))
-    seed = RadiationSeed().translate((13, 13))
+    seed = Pulsar().translate((13, 13))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
@@ -41,7 +42,7 @@ def main():
         seed=seed,
         epochs=config.epochs,
         cell_type=ClassicCell,
-        continuous=False
+        continuous=True
     )
 
     # Export gif
