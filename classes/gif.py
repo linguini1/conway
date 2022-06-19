@@ -15,14 +15,11 @@ FILENAME = "animation.gif"
 # Class
 class GIFExporter:
 
-    def __init__(self, grid: Grid, scale: int = 10, frame_duration: int = 200, show_progress: bool = True):
+    def __init__(self, grid: Grid, scale: int = 10, frame_duration: int = 200):
         self.grid = grid
         self.size = grid.columns, grid.rows
         self.scale = scale
         self.frame_duration = frame_duration
-
-        # Progress bar
-        self.show_progress = show_progress
 
         # Storing frames
         self.frames = []
@@ -55,30 +52,36 @@ class GIFExporter:
 
         return image
 
-    def __create_frames(self, colours: tuple[str, str], progress_bar: ChargingBar = None):
+    def __create_frames(self, colours: tuple[str, str], progress_bar: ChargingBar = None) -> int:
 
-        """Creates images from grid values and stores them as frames."""
+        """Creates images from grid values and stores them as frames. Returns frame count."""
+
+        frame_count = 0
 
         for frame in self.grid.create_game():
             image = self.__create_image(frame, colours)
             self.frames.append(image)
 
             # Show progress
+            frame_count += 1
             if progress_bar:
                 progress_bar.next()
+        
+        return frame_count
 
     def export(self, colours: tuple[str, str] = DEFAULT_COLOURS):
 
         """Exports a GIF file of the game."""
 
         # Create frames showing progress
-        if self.show_progress and not self.grid.continuous:
+        if not self.grid.continuous:
             with ChargingBar("Creating frames", max=self.grid.epochs) as bar:
                 self.__create_frames(colours, bar)
 
-        # Create frames without showing progress
+        # Create frames without showing progress bar
         else:
-            self.__create_frames(colours)  # Create the frames
+            count = self.__create_frames(colours)  # Create the frames
+            print(f"{count} frames created.")
 
         print("Saving GIF...")
         gif = self.frames[0]  # Grab the first image as the base
