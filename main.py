@@ -17,6 +17,7 @@ from classes.seeds import ChaosSeed
 from classes.seeds.spaceships import GliderSeed
 from classes.seeds.oscillators import PulsarSeed
 from classes.seeds.static import SquareSeed
+from classes.seeds.misc import ShoeBoxSeed
 
 
 # Main
@@ -31,8 +32,8 @@ def main():
             * config.dimensions[1]
         ),
         deviation=6
-    ).translate((50, 50))
-    seed = GliderSeed().translate((13, 13))
+    ).translate((25, 25))
+    seed = ShoeBoxSeed().translate((25, 25))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
