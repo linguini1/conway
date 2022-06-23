@@ -29,7 +29,7 @@ class BlinkerSeed(Seed):
         super().__init__()
 
         self.coordinates = [
-            (-1, 0), (0, 0), (0, 1)
+            (-1, 0), (0, 0), (1, 0)
         ]
 
 
