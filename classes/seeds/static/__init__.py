@@ -42,3 +42,14 @@ class LoafSeed(Seed):
             (0, 0), (-1, 1), (1, -1),
             (0, 2), (1, 2), (2, 1), (2, 0)
         ]
+
+
+class BoatSeed(Seed):
+    """Boat shape from origin COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-1, 0), (1, 0), (-1, 1), (0, 1), (0, -1)
+        ]
