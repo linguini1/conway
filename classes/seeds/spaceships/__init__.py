@@ -32,3 +32,17 @@ class LightSpaceshipSeed(Seed):
             (-1, 1), (-2, 0), (-2, -1), (-2, -2), (-1, -2), (0, -2),
             (1, -2), (2, -1), (2, 1)
         ]
+
+
+class MiddleSpaceshipSeed(Seed):
+    """Light-weight spaceship from original COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-1, 1), (0, 1), (1, 1),
+            (-2, 0), (-1, 0), (0, 0), (1, 0), (2, 0),
+            (-2, -1), (-1, -1), (0, -1), (2, -1), (3, -1),
+            (1, -2), (2, -2)
+        ]
