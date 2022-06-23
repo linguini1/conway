@@ -14,9 +14,9 @@ from classes.cells.classic import ClassicCell
 
 # Seeds
 from classes.seeds import ChaosSeed
-from classes.seeds.spaceships import GliderSeed
-from classes.seeds.oscillators import PulsarSeed, PulsarPredecessorSeed
-from classes.seeds.static import SquareSeed, BeehiveSeed, LoafSeed
+from classes.seeds.spaceships import HeavySpaceshipSeed
+from classes.seeds.oscillators import PentaDecathlonSeed
+from classes.seeds.static import BoatSeed
 from classes.seeds.misc import ShoeBoxSeed
 
 
@@ -33,7 +33,7 @@ def main():
         ),
         deviation=6
     ).translate((25, 25))
-    seed = LoafSeed().translate((25, 25))
+    seed = HeavySpaceshipSeed().translate((25, 25))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
