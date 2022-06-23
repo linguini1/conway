@@ -1,3 +1,5 @@
+# Animation file
 animation.gif
-previous_seed.json
-config.json
+
+# Config and previous seed files
+*.json
