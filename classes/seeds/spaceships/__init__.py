@@ -23,6 +23,7 @@ class GliderSeed(Seed):
 
 
 class LightSpaceshipSeed(Seed):
+
     """Light-weight spaceship from original COGL."""
 
     def __init__(self):
@@ -35,6 +36,7 @@ class LightSpaceshipSeed(Seed):
 
 
 class MiddleSpaceshipSeed(Seed):
+
     """Light-weight spaceship from original COGL."""
 
     def __init__(self):
@@ -44,5 +46,20 @@ class MiddleSpaceshipSeed(Seed):
             (-1, 1), (0, 1), (1, 1),
             (-2, 0), (-1, 0), (0, 0), (1, 0), (2, 0),
             (-2, -1), (-1, -1), (0, -1), (2, -1), (3, -1),
+            (1, -2), (2, -2)
+        ]
+
+
+class HeavySpaceshipSeed(Seed):
+
+    """Light-weight spaceship from original COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-2, 1), (-1, 1), (0, 1), (1, 1),
+            (-3, 0), (-2, 0), (-1, 0), (0, 0), (1, 0), (2, 0),
+            (-3, -1), (-2, -1), (-1, -1), (0, -1), (2, -1), (3, -1),
             (1, -2), (2, -2)
         ]
