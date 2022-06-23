@@ -33,6 +33,7 @@ class BeehiveSeed(Seed):
 
 
 class LoafSeed(Seed):
+
     """Loaf shape from origin COGL."""
 
     def __init__(self):
@@ -45,6 +46,7 @@ class LoafSeed(Seed):
 
 
 class BoatSeed(Seed):
+
     """Boat shape from origin COGL."""
 
     def __init__(self):
@@ -52,4 +54,16 @@ class BoatSeed(Seed):
 
         self.coordinates = [
             (-1, 0), (1, 0), (-1, 1), (0, 1), (0, -1)
+        ]
+
+
+class TubSeed(Seed):
+
+    """Tub shape from origin COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-1, 0), (1, 0), (0, -1), (0, 1)
         ]
