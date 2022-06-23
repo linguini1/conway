@@ -21,3 +21,14 @@ class GliderSeed(Seed):
             (-1, 1),
         ]
 
+
+class LightSpaceshipSeed(Seed):
+    """Light-weight spaceship from original COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-1, 1), (-2, 0), (-2, -1), (-2, -2), (-1, -2), (0, -2),
+            (1, -2), (2, -1), (2, 1)
+        ]
