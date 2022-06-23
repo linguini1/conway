@@ -21,14 +21,26 @@ class PulsarSeed(Seed):
         ]
 
 
-class PulsarPredecessorSeed(Seed):
+class BlinkerSeed(Seed):
 
-    """Develops into pulsar."""
+    """Blinker oscillator from the classic COGL."""
 
-    def __init__(self) -> None:
+    def __init__(self):
         super().__init__()
 
         self.coordinates = [
-            (0, -2), (0, -1), (0, 0), (0, 1), (0, 2),
-            (1, -2), (1, 2)
+            (-1, 0), (0, 0), (0, 1)
+        ]
+
+
+class ToadSeed(Seed):
+
+    """Toad oscillator from the classic COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (-1, 0), (0, 0), (1, 0),
+            (0, 1), (1, 1), (2, 1)
         ]
