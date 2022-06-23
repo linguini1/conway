@@ -44,3 +44,16 @@ class ToadSeed(Seed):
             (-1, 0), (0, 0), (1, 0),
             (0, 1), (1, 1), (2, 1)
         ]
+
+
+class BeaconSeed(Seed):
+
+    """Beacon oscillator from the classic COGL."""
+
+    def __init__(self):
+        super().__init__()
+
+        self.coordinates = [
+            (0, 0), (0, 1), (-1, 0), (-1, 1),
+            (1, -1), (2, -1), (1, -2), (2, -2)
+        ]
