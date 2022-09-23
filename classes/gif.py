@@ -27,12 +27,12 @@ class GIFExporter:
     def __create_image(self, snapshot: GridField, colours: tuple[str, str]) -> Image:
 
         """Returns an image based on the passed grid snapshot."""
-
-        image = Image.new('RGB', self.size)
         
         # Unpack colours
         dead, alive = colours
         dead, alive = ImageColor.getrgb(dead), ImageColor.getrgb(alive)
+
+        image = Image.new('RGB', self.size, dead)  # Define image
 
         for y in range(self.grid.rows):  # Rows
             for x in range(self.grid.columns):  # Columns
@@ -40,11 +40,7 @@ class GIFExporter:
 
                 # Decide on colour
                 if current_cell.alive:
-                    colour = alive
-                else:
-                    colour = dead
-
-                image.putpixel((x, y), colour)  # Place colour on image
+                    image.putpixel((x, y), alive)  # Place colour on image
 
         # Resize image
         new_size = self.size[0] * self.scale, self.size[1] * self.scale
