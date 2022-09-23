@@ -45,3 +45,14 @@ def map_center(dimensions: Coordinates) -> Coordinates:
     x, y = dimensions
 
     return round(x / 2), round(y / 2)
+
+
+def percentage_of_map(percentage: float, dimensions: Coordinates) -> int:
+
+    assert 0 < percentage <= 100, "Percentage must be greater than 0, up to 100."
+
+    y, x = dimensions
+
+    """Returns the number of points required to cover the passed percentage of the map dimensions."""
+
+    return round((percentage / 100) * x * y)
