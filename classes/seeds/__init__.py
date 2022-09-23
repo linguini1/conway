@@ -23,3 +23,20 @@ class ChaosSeed(Seed):
             y = int(random.gauss(0, deviation))
 
             self.coordinates.append((x, y))
+
+
+class MoreChaoticSeed(Seed):
+
+    def __init__(self, cell_number: int, dimensions: Coordinates) -> None:
+        super().__init__()
+
+        # Unpack dimensions
+        columns, rows = dimensions
+
+        # Make random coordinates
+        self.coordinates = []
+        for _ in range(cell_number):
+            y = random.randint(0, rows - 1)
+            x = random.randint(0, columns - 1)
+
+            self.coordinates.append((x, y))
