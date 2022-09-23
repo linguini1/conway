@@ -36,3 +36,12 @@ def previous_seed() -> list[Coordinates]:
         data = json.load(file)
 
     return [tuple(coordinate) for coordinate in data]
+
+
+def map_center(dimensions: Coordinates) -> Coordinates:
+
+    """Returns the (approximate) center of the map from its dimensions as x, y coordinates."""
+
+    x, y = dimensions
+
+    return round(x / 2), round(y / 2)
