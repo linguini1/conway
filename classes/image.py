@@ -3,8 +3,8 @@ __author__ = "Matteo Golin"
 
 # Imports
 from PIL import Image, ImageColor
-from conway.classes.grid import Grid
-from conway.customtypes import GridField
+from classes.grid import Grid
+from customtypes import GridField
 from progress.bar import ChargingBar
 
 # Constants
@@ -55,7 +55,7 @@ class ImageExporter:
             # Export image every step size
             if counter % self.step_size == 0:
                 image = self.__create_image(generation, colours)
-                image.save(f"./images/{FILENAME}.{extension}")
+                image.save(f"./images/{FILENAME}_{counter // self.step_size}.{extension}")
                 progress_bar.next()
 
             counter += 1

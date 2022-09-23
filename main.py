@@ -5,8 +5,9 @@ __author__ = "Matteo Golin"
 # Structural classes
 from classes.grid import Grid
 from classes.gif import GIFExporter
+from classes.image import ImageExporter
 from classes.config import Config
-from utils import export_seed, previous_seed
+from utils import export_seed, previous_seed, map_center
 
 # Cells
 from classes.cells.maze import MazeCell
@@ -14,10 +15,6 @@ from classes.cells.classic import ClassicCell
 
 # Seeds
 from classes.seeds import ChaosSeed
-from classes.seeds.spaceships import HeavySpaceshipSeed
-from classes.seeds.oscillators import PentaDecathlonSeed
-from classes.seeds.static import BoatSeed
-from classes.seeds.misc import ShoeBoxSeed
 
 
 # Main
@@ -27,13 +24,12 @@ def main():
     config = Config()
     seed = ChaosSeed(
         cell_number=int(
-            0.2  # Percentage of map to cover
+            0.5  # Percentage of map to cover
             * config.dimensions[0]
             * config.dimensions[1]
         ),
-        deviation=6
-    ).translate((25, 25))
-    seed = HeavySpaceshipSeed().translate((25, 25))
+        deviation=10
+    ).translate(map_center(config.dimensions))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
@@ -43,14 +39,21 @@ def main():
         seed=seed,
         epochs=config.epochs,
         cell_type=ClassicCell,
-        continuous=True
+        continuous=False
     )
 
     # Export gif
-    GIFExporter(
+    # GIFExporter(
+    #     grid=grid,
+    #     scale=config.animation.scale,
+    #     frame_duration=config.animation.duration,
+    # ).export(config.animation.colours)
+
+    # Export images
+    ImageExporter(
         grid=grid,
         scale=config.animation.scale,
-        frame_duration=config.animation.duration,
+        step_size=50,
     ).export(config.animation.colours)
 
 

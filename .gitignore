@@ -1,5 +1,11 @@
 # Animation file
 animation.gif
 
+# Images
+images/*.png
+images/*.jpg
+
 # Config and previous seed files
-*.json
+config.json
+previous_seed.json
+
