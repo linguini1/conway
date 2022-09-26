@@ -9,7 +9,7 @@
       "dead": "#f0f6f0",
       "alive": "#222323"
     },
-    "duration": 100,
+    "frame_duration": 100,
     "scale": 1
   }
 }

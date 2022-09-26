@@ -46,7 +46,7 @@ def main():
     # GIFExporter(
     #     grid=grid,
     #     scale=config.animation.scale,
-    #     frame_duration=config.animation.duration,
+    #     frame_duration=config.animation.frame_duration,
     # ).export(config.animation.colours)
 
     # Export images
