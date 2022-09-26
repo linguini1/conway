@@ -59,9 +59,17 @@ class Grid:
             x, y = add_vector(index, vector)
 
             try:
-                current_neighbour = self.array[y][x]
-                if current_neighbour.alive:
-                    neighbours += 1
+
+                # Python negative indexes should not be used here
+                if x < 0 or y < 0:
+                    pass
+
+                # Valid, non-negative index
+                else:
+                    current_neighbour = self.array[y][x]
+                    if current_neighbour.alive:
+                        neighbours += 1
+
             except IndexError:
                 pass  # Counts as dead cell
 
