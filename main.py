@@ -7,13 +7,13 @@ from classes.grid import Grid
 from classes.gif import GIFExporter
 from classes.image import ImageExporter
 from classes.config import Config
-from utils import export_seed, previous_seed, map_center
+from utils import export_seed, previous_seed, map_center, percentage_of_map
 
 # Cells
-from classes.cells.maze import MazeCell
-from classes.cells.classic import ClassicCell
+from classes.cells import MazeCell, ClassicCell
 
 # Seeds
+from classes.seeds import MoreChaoticSeed
 from classes.seeds import ChaosSeed
 
 
@@ -22,13 +22,10 @@ def main():
 
     # Start parameters
     config = Config()
+
     seed = ChaosSeed(
-        cell_number=int(
-            0.5  # Percentage of map to cover
-            * config.dimensions[0]
-            * config.dimensions[1]
-        ),
-        deviation=10
+        cell_number=20,
+        deviation=4
     ).translate(map_center(config.dimensions))
     #seed = previous_seed()
     export_seed(seed)  # Export seed
@@ -38,23 +35,23 @@ def main():
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
-        cell_type=ClassicCell,
-        continuous=False
+        cell_type=MazeCell,
+        continuous=True
     )
 
     # Export gif
-    # GIFExporter(
-    #     grid=grid,
-    #     scale=config.animation.scale,
-    #     frame_duration=config.animation.duration,
-    # ).export(config.animation.colours)
-
-    # Export images
-    ImageExporter(
+    GIFExporter(
         grid=grid,
         scale=config.animation.scale,
-        step_size=50,
+        frame_duration=config.animation.duration,
     ).export(config.animation.colours)
+
+    # Export images
+    # ImageExporter(
+    #     grid=grid,
+    #     scale=config.animation.scale,
+    #     step_size=1,
+    # ).export(config.animation.colours)
 
 
 if __name__ == '__main__':

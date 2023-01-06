@@ -1,5 +1,5 @@
 {
-  "epochs": 500,
+  "epochs": 1000,
   "dimensions": {
     "rows": 200,
     "columns": 400
@@ -9,7 +9,7 @@
       "dead": "#f0f6f0",
       "alive": "#222323"
     },
-    "duration": 100,
-    "scale": 1
+    "duration": 50,
+    "scale": 5
   }
 }
