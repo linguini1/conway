@@ -1,5 +1,5 @@
 {
-  "epochs": 1000,
+  "epochs": 500,
   "dimensions": {
     "rows": 200,
     "columns": 400

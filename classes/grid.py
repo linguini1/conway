@@ -2,10 +2,9 @@
 __author__ = "Matteo Golin"
 
 # Imports
-from customtypes import GridDimension, Coordinates, GridField, Game, Cell
-from classes.cells.classic import ClassicCell
+from customtypes import GridDimension, Coordinates, GridField, Game
+from classes.cells import Cell
 from utils import add_vector
-import pprint
 
 # Constants
 NEIGHBOUR_VECTORS = [
@@ -22,10 +21,10 @@ class Grid:
 
     def __init__(
             self,
+            cell_type: Cell,
             dimensions: GridDimension,
             epochs: int,
             seed: list[Coordinates] = None,
-            cell_type: Cell = ClassicCell,
             continuous: bool = False,
     ):
         self.columns, self.rows = dimensions

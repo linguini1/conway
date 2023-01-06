@@ -3,7 +3,7 @@ __author__ = "Matteo Golin"
 
 # Imports
 from typing import Generator
-from classes.cells.basecell import Cell
+from classes.cells import Cell
 
 # Types
 GridDimension = tuple[int, int]

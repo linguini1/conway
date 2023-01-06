@@ -36,7 +36,7 @@ def main():
         seed=seed,
         epochs=config.epochs,
         cell_type=MazeCell,
-        continuous=True
+        continuous=False
     )
 
     # Export gif
