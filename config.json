@@ -1,15 +1,15 @@
 {
-  "epochs": 500,
+  "epochs": 300,
   "dimensions": {
-    "rows": 200,
-    "columns": 400
+    "rows": 64,
+    "columns": 64
   },
   "animation": {
     "colours": {
       "dead": "#f0f6f0",
       "alive": "#222323"
     },
-    "duration": 50,
-    "scale": 5
+    "frame_duration": 100,
+    "scale": 10
   }
 }

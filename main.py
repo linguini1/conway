@@ -15,6 +15,7 @@ from classes.cells import MazeCell, ClassicCell
 # Seeds
 from classes.seeds import MoreChaoticSeed
 from classes.seeds import ChaosSeed
+from classes.seeds.spaceships import MiddleSpaceshipSeed
 
 
 # Main
@@ -27,30 +28,33 @@ def main():
         cell_number=20,
         deviation=4
     ).translate(map_center(config.dimensions))
+
+    # Seed import and export
     #seed = previous_seed()
     export_seed(seed)  # Export seed
 
     # Create game
+    print("Starting grid generation...")
     grid = Grid(
+        cell_type=MazeCell,
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
-        cell_type=MazeCell,
-        continuous=False
     )
+    print("Grid generation complete.\n")
 
     # Export gif
+    print("Running game...")
     GIFExporter(
         grid=grid,
         scale=config.animation.scale,
-        frame_duration=config.animation.duration,
+        frame_duration=config.animation.frame_duration,
     ).export(config.animation.colours)
 
     # Export images
     # ImageExporter(
     #     grid=grid,
     #     scale=config.animation.scale,
-    #     step_size=1,
     # ).export(config.animation.colours)
 
 

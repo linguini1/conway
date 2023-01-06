@@ -29,7 +29,7 @@ class Config:
         )
 
         self.animation = Animation(
-            animation["duration"],
+            animation["frame_duration"],
             animation["scale"],
             (
                 colours["dead"],
@@ -50,6 +50,6 @@ class Config:
 
 @dataclass()
 class Animation:
-    duration: int
+    frame_duration: int
     scale: int
     colours: tuple[str, str]  # Dead, alive
