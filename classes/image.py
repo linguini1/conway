@@ -60,14 +60,12 @@ class ImageExporter:
 
             counter += 1
 
-    def export(self, colours: tuple[str, str], png=True) -> None:
+    def export(self, colours: tuple[str, str] = DEFAULT_COLOURS, png=True) -> None:
 
         """Exports image files of the grid."""
 
         # Pick extension
-        extension = "jpg"
-        if png:
-            extension = "png"
+        extension = "png" if png else "jpg"
 
         # Show progress
         if not self.grid.continuous:
