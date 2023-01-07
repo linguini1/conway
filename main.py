@@ -10,7 +10,7 @@ from classes.config import Config
 from utils import export_seed, previous_seed, map_center, percentage_of_map
 
 # Cells
-from classes.cells import MazeCell, ClassicCell
+from classes.cells import MazeCell, ClassicCell, FrostCell
 
 # Seeds
 from classes.seeds import MoreChaoticSeed
@@ -25,8 +25,8 @@ def main():
     config = Config()
 
     seed = ChaosSeed(
-        cell_number=percentage_of_map(50, config.dimensions),
-        deviation=10
+        cell_number=percentage_of_map(10, config.dimensions),
+        deviation=9
     ).translate(map_center(config.dimensions))
 
     # Seed import and export
@@ -36,7 +36,7 @@ def main():
     # Create game
     print("Starting grid generation...")
     grid = Grid(
-        cell_type=ClassicCell,
+        cell_type=FrostCell,
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,

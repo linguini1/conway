@@ -42,14 +42,21 @@ size controls after how many epochs an image snapshot should be recorded. The im
 the filename `image_<#>.<png/jpg>`. The file extension of the image can be set to jpg if the `png` keyword parameter is
 set to `False`. By default, images are exported as PNGs.
 
+The utility function `map_center()` can be used to quickly find the center of the `Grid` using the config dimensions.
+This streamlines placing seeds in the center of the map.
 
+The utility function `percentage_of_map()` can be used to calculate how many cells are the given percentage of the map,
+given the dimensions. This makes `ChaosSeed` implementations easier because the programmer does not need to eyeball how 
+many cells they need for their seed.
+
+### Example program
 ```Python
     # Start parameters
     config = Config()
 
     seed = ChaosSeed(
-        cell_number=percentage_of_map(0.6, config.dimensions),
-        deviation=8
+        cell_number=percentage_of_map(10, config.dimensions),
+        deviation=4
     ).translate(map_center(config.dimensions))
 
     # Seed import and export
@@ -73,14 +80,16 @@ set to `False`. By default, images are exported as PNGs.
         scale=config.animation.scale,
         frame_duration=config.animation.frame_duration,
     ).export(config.animation.colours)
-
-    # Export images
-    # ImageExporter(
-    #     grid=grid,
-    #     scale=config.animation.scale,
-    # ).export(config.animation.colours)
 ```
 
+## Seeds
+
+### Classic Seed
+![Classic Seed](./docs/classic.gif)
+### Maze Seed
+![Classic Seed](./docs/maze.gif)
+### Frost Seed
+![Classic Seed](./docs/frost.gif)
 
 ## Requirements
 - Python 3.9.2 greater
