@@ -60,7 +60,7 @@ class ImageExporter:
 
             counter += 1
 
-    def export(self, colours: tuple[str, str] = DEFAULT_COLOURS, png=True) -> None:
+    def export(self, colours: tuple[str, str] = DEFAULT_COLOURS, png: bool = True) -> None:
 
         """Exports image files of the grid."""
 

@@ -25,8 +25,8 @@ def main():
     config = Config()
 
     seed = ChaosSeed(
-        cell_number=20,
-        deviation=4
+        cell_number=percentage_of_map(50, config.dimensions),
+        deviation=10
     ).translate(map_center(config.dimensions))
 
     # Seed import and export
@@ -36,7 +36,7 @@ def main():
     # Create game
     print("Starting grid generation...")
     grid = Grid(
-        cell_type=MazeCell,
+        cell_type=ClassicCell,
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,
@@ -55,6 +55,7 @@ def main():
     # ImageExporter(
     #     grid=grid,
     #     scale=config.animation.scale,
+    #     step_size=100,
     # ).export(config.animation.colours)
 
 

@@ -1,8 +1,8 @@
 {
-  "epochs": 300,
+  "epochs": 500,
   "dimensions": {
-    "rows": 64,
-    "columns": 64
+    "rows": 200,
+    "columns": 200
   },
   "animation": {
     "colours": {
