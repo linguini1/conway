@@ -87,9 +87,9 @@ many cells they need for their seed.
 ### Classic Seed
 ![Classic Seed](./docs/classic.gif)
 ### Maze Seed
-![Classic Seed](./docs/maze.gif)
+![Maze Seed](./docs/maze.gif)
 ### Frost Seed
-![Classic Seed](./docs/frost.gif)
+![Frost Seed](./docs/frost.gif)
 
 ## Requirements
 - Python 3.9.2 greater
