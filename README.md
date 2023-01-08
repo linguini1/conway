@@ -25,7 +25,7 @@ exported using the `export_seed(<seed>)` utility function. This will save the se
 seeds can be loaded using the `previous_seed()` utility function.
 
 Third, a `Grid` object must be created to host the simulation. The Grid requires dimensions, a number of epochs to run
-for, a seed and the type of cell that the simulation should use.
+for, a seed and the [type of cell](#cells) that the simulation should use.
 If the user desires to run the simulation without a specified number of epochs, the `continuous` keyword parameter 
 should be set to `True`. This will run the simulation until all cells are detected to have `died` (hold a static
 position/oscillate in a stable way).
@@ -82,14 +82,27 @@ many cells they need for their seed.
     ).export(config.animation.colours)
 ```
 
-## Seeds
+## Cells
+### Classic Cell
+![Classic Cell](./docs/classic.gif)
+### Maze Cell
+![Maze Cell](./docs/maze.gif)
+### Frost Cell
+![Frost Cell](./docs/frost.gif)
 
-### Classic Seed
-![Classic Seed](./docs/classic.gif)
-### Maze Seed
-![Maze Seed](./docs/maze.gif)
-### Frost Seed
-![Frost Seed](./docs/frost.gif)
+## Seeds
+### Pulsar Seed
+Part of the oscillators group.
+![Pulsar Seed](./docs/pulsar.gif)
+### Middle Spaceship Seed
+Part of the spaceship group, where a collection of cells moves in unison across the grid.
+![Middle Spaceship Seed](./docs/middlespaceship.gif)
+### Shoebox Seed
+A chaotic opening seed from very few initial cells.
+![Shoebox Seed](./docs/shoebox.gif)
+### Pentadecathlon Seed
+Part of the oscillators group as well, with a long cycle.
+![Pentadecathlon Seed](./docs/pentadecathlon.gif)
 
 ## Requirements
 - Python 3.9.2 greater
