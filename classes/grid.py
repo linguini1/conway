@@ -2,6 +2,7 @@
 __author__ = "Matteo Golin"
 
 # Imports
+from typing import Type
 from customtypes import GridDimension, Coordinates, GridField, Game
 from classes.cells import Cell
 from utils import add_vector
@@ -21,18 +22,18 @@ class Grid:
 
     def __init__(
             self,
-            cell_type: Cell,
+            cell_type: Type[Cell],
             dimensions: GridDimension,
             epochs: int,
             seed: list[Coordinates] = None,
             continuous: bool = False,
     ):
         self.columns, self.rows = dimensions
-        self.seed = seed
-        self.epochs = epochs
-        self.cell_type = cell_type
-        self.continuous = continuous
-        self.array = self.__initialize_array()
+        self.seed: list[Coordinates] = seed
+        self.epochs: int = epochs
+        self.cell_type: Type[Cell] = cell_type
+        self.continuous: bool = continuous
+        self.array: GridField = self.__initialize_array()
 
     def __initialize_array(self) -> GridField:
 
