@@ -1,9 +1,11 @@
-# Animation file
-animation.gif
+# Output
+*.png
+*.jpg
+*.jpeg
+*.gif
 
-# Images
-images/*.png
-images/*.jpg
+# Don't ignore images in docs
+!/docs/*
 
 # Config and previous seed files
 config.json
