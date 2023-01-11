@@ -73,8 +73,8 @@ def _create_images(colours: Palette, simulation: Generator, size: Size, scale: i
 class Exporter(Protocol):
     """An object that exports some type of visualization of a simulation via an export method."""
 
-    def export(self, filename: str, colours: Palette = DEFAULT_COLOURS) -> None:
-        """Exports the simulation in some media format using two colours."""
+    def export(self, filepath: str, colours: Palette = DEFAULT_COLOURS) -> None:
+        """Exports the simulation in some media format using two colours to the specified pathway."""
         ...
 
 
@@ -106,9 +106,9 @@ class ImageExporter:
 
         self.__extension = extension.lower()
 
-    def export(self, filename: str, colours: Palette = DEFAULT_COLOURS) -> None:
+    def export(self, filepath: str, colours: Palette = DEFAULT_COLOURS) -> None:
         """
-        Exports simulation generations every multiple of the step size as an image file with the desired filename and
+        Exports simulation generations every multiple of the step size as an image file with the desired filepath and
         colours.
         """
 
@@ -134,7 +134,7 @@ class ImageExporter:
         # Save the images
         with Bar("Saving images", max=len(images)) as bar:
             for num, image in enumerate(images):
-                image.save(f"./images/{filename}_{num + 1}.{self.extension}")
+                image.save(f"{filepath}_{num + 1}.{self.extension}")
                 bar.next()
 
 
@@ -147,7 +147,7 @@ class GIFExporter:
         self.size: Size = grid.columns, grid.rows
         self.frame_duration: int = frame_duration
 
-    def export(self, filename: str, colours: Palette = DEFAULT_COLOURS) -> None:
+    def export(self, filepath: str, colours: Palette = DEFAULT_COLOURS) -> None:
         """Exports simulation generations every multiple of the step size as a GIF file."""
 
         # Decide whether to show progress
@@ -171,7 +171,7 @@ class GIFExporter:
             # Save the GIF animation
         gif = frames.pop(0)  # Grab the first image as the base
         gif.save(
-            fp=f"./{filename}.gif",
+            fp=f"{filepath}.gif",
             format='GIF',
             append_images=frames,
             save_all=True,
