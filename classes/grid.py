@@ -3,7 +3,7 @@ __author__ = "Matteo Golin"
 
 # Imports
 from typing import Type
-from customtypes import GridDimension, Coordinates, GridField, Game
+from customtypes import GridDimension, Coordinates, GridField, Simulation
 from classes.cells import Cell
 from utils import add_vector
 
@@ -94,11 +94,11 @@ class Grid:
 
         return self.array.copy()
 
-    def create_game(self) -> Game:
+    def create_simulation(self) -> Simulation:
 
-        """Returns a generator containing all generations (epochs) of the game."""
+        """Returns a generator containing all generations (epochs) of the simulation."""
 
-        # Continues until game becomes static
+        # Continues until Simulation becomes static
         if self.continuous:
 
             previous: list[list[list[bool]]] = []
