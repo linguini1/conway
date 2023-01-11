@@ -120,7 +120,7 @@ class ImageExporter:
 
         images = _create_images(
             colours,
-            simulation=self.grid.create_simulation()(),
+            simulation=self.grid.create_simulation(),
             size=self.size,
             scale=self.scale,
             step_size=self.step_size,
@@ -158,7 +158,7 @@ class GIFExporter:
 
         frames = _create_images(
             colours,
-            simulation=self.grid.create_simulation()(),
+            simulation=self.grid.create_simulation(),
             size=self.size,
             scale=self.scale,
             progress_bar=bar
