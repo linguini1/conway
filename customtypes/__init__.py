@@ -9,4 +9,4 @@ from classes.cells import Cell
 GridDimension = tuple[int, int]
 Coordinates = tuple[int, int]
 GridField = list[list[Cell]]
-Game = Generator
+Game = Generator[GridField, None, None]
