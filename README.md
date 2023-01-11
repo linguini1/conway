@@ -7,6 +7,11 @@
 A Pythonic recreation of Conway's game of life using classic and alternative rules for cell implementation. Games are
 exported as GIFS.
 
+## Requirements
+- Python 3.9.2 greater
+- Pillow module
+- Progress module
+
 ## Usage
 
 ### Config File
@@ -132,9 +137,3 @@ A seed that quickly becomes chaotic from very few initial cells.
 
 Part of the oscillators group as well, with a long cycle.
 ![Pentadecathlon Seed](./docs/pentadecathlon.gif)
-
-## Requirements
-
-- Python 3.9.2 greater
-- Pillow module
-- Progress module
