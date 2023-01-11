@@ -40,21 +40,21 @@ def main():
     print("Grid generation complete.\n")
 
     # Export gif
-    gif_exporter = GIFExporter(
-        grid=grid,
-        scale=config.animation.scale,
-        frame_duration=config.animation.frame_duration,
-    )
-    gif_exporter.export(filename="animation", colours=config.animation.colours)
-
-    # Export images
-    # image_exporter = ImageExporter(
+    # gif_exporter = GIFExporter(
     #     grid=grid,
     #     scale=config.animation.scale,
-    #     step_size=20,
+    #     frame_duration=config.animation.frame_duration,
     # )
-    # image_exporter.extension = "jpeg"
-    # image_exporter.export(filename="image", colours=config.animation.colours)
+    # gif_exporter.export(filepath="./animation", colours=config.animation.colours)
+
+    # Export images
+    image_exporter = ImageExporter(
+        grid=grid,
+        scale=config.animation.scale,
+        step_size=20,
+    )
+    image_exporter.extension = "jpeg"
+    image_exporter.export(filepath="./image", colours=config.animation.colours)
 
 
 if __name__ == '__main__':
