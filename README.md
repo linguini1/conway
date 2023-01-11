@@ -8,9 +8,9 @@ A Pythonic recreation of Conway's game of life using classic and alternative rul
 exported as GIFS.
 
 ## Requirements
-- Python 3.9.2 greater
-- Pillow module
-- Progress module
+- Python 3.11
+- Pillow
+- Progress
 
 ## Usage
 
