@@ -22,7 +22,7 @@ def add_vector(point1: Coordinates, point2: Coordinates) -> Coordinates:
 
 def export_seed(seed: list[Coordinates]) -> None:
 
-    """Exports the previously used seed in JSON format."""
+    """Exports the passed seed in JSON format."""
 
     with open(SEED_FILE_NAME, 'w') as file:
         json.dump(seed, file)
