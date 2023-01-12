@@ -27,7 +27,7 @@ class Config:
     @classmethod
     def from_json_file(cls, filepath: str) -> Self:
 
-        """Returns config file data as dictionary object."""
+        """Returns config file data as a Config object."""
 
         with open(filepath, 'r') as config:
             data = json.load(config)
