@@ -10,14 +10,14 @@ SEED_FILE_NAME = "previous_seed.json"
 
 
 # Functions
-def add_vector(coords: Coordinates, vector: Coordinates) -> Coordinates:
+def add_vector(point1: Coordinates, point2: Coordinates) -> Coordinates:
 
     """Returns the result of adding a vector to a coordinate pair."""
 
-    x, y = coords
-    X, Y = vector
+    x1, y1 = point1
+    x2, y2 = point2
 
-    return x + X, y + Y
+    return x1 + x2, y1 + y2
 
 
 def export_seed(seed: list[Coordinates]) -> None:
