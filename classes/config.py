@@ -4,31 +4,46 @@ __author__ = "Matteo Golin"
 # Imports
 import json
 from dataclasses import dataclass
+from typing import Self
 
 # Constants
-FILE_NAME = "config.json"
 
 
 # Classes
+@dataclass()
+class Animation:
+    frame_duration: int
+    scale: int
+    colours: tuple[str, str]  # Dead, alive
+
+
+@dataclass
 class Config:
 
-    def __init__(self):
+    dimensions: tuple[int, int]
+    epochs: int
+    animation: Animation
 
-        data = self.__load_from_file()  # Load data
+    @classmethod
+    def from_json_file(cls, filepath: str) -> Self:
+
+        """Returns config file data as dictionary object."""
+
+        with open(filepath, 'r') as config:
+            data = json.load(config)
 
         # Unpack data
         dimensions = data["dimensions"]
         animation = data["animation"]
         colours = animation["colours"]
+        epochs = data["epochs"]
 
-        self.epochs = data["epochs"]
-
-        self.dimensions = (
+        dimensions = (
             dimensions["columns"],
             dimensions["rows"]
         )
 
-        self.animation = Animation(
+        animation = Animation(
             animation["frame_duration"],
             animation["scale"],
             (
@@ -37,19 +52,8 @@ class Config:
             )
         )
 
-    @staticmethod
-    def __load_from_file() -> dict:
-
-        """Returns config file data as dictionary object."""
-
-        with open(FILE_NAME, 'r') as config:
-            data = json.load(config)
-
-        return data
-
-
-@dataclass()
-class Animation:
-    frame_duration: int
-    scale: int
-    colours: tuple[str, str]  # Dead, alive
+        return Config(
+            epochs=epochs,
+            dimensions=dimensions,
+            animation=animation
+        )
