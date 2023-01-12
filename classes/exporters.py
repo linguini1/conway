@@ -5,8 +5,8 @@ __author__ = "Matteo Golin"
 from PIL import Image, ImageColor
 from progress.bar import Bar
 from classes.grid import Grid
-from customtypes import GridField
-from typing import Generator, Protocol
+from customtypes import GridField, Simulation
+from typing import Protocol
 
 # Constants
 Palette = tuple[str, str]
@@ -42,7 +42,7 @@ def _create_image(generation: GridField, colours: Palette, size: Size, scale: in
     return image
 
 
-def _create_images(colours: Palette, simulation: Generator, size: Size, scale: int, step_size: int = 1,
+def _create_images(colours: Palette, simulation: Simulation, size: Size, scale: int, step_size: int = 1,
                    progress_bar: Bar = None) -> list[Image]:
     """
     Returns a list of images, recorded on every snapshot which is a multiple of the step size parameter.
@@ -120,7 +120,7 @@ class ImageExporter:
 
         images = _create_images(
             colours,
-            simulation=self.grid.create_game(),
+            simulation=self.grid.create_simulation(),
             size=self.size,
             scale=self.scale,
             step_size=self.step_size,
@@ -158,7 +158,7 @@ class GIFExporter:
 
         frames = _create_images(
             colours,
-            simulation=self.grid.create_game(),
+            simulation=self.grid.create_simulation(),
             size=self.size,
             scale=self.scale,
             progress_bar=bar

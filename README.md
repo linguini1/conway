@@ -7,6 +7,11 @@
 A Pythonic recreation of Conway's game of life using classic and alternative rules for cell implementation. Games are
 exported as GIFS.
 
+## Requirements
+- Python 3.11
+- Pillow
+- Progress
+
 ## Usage
 
 ### Config File
@@ -125,16 +130,10 @@ Part of the spaceship group, where a collection of cells moves in unison across 
 
 ### Shoebox Seed
 
-A chaotic opening seed from very few initial cells.
+A seed that quickly becomes chaotic from very few initial cells.
 ![Shoebox Seed](./docs/shoebox.gif)
 
 ### Pentadecathlon Seed
 
 Part of the oscillators group as well, with a long cycle.
 ![Pentadecathlon Seed](./docs/pentadecathlon.gif)
-
-## Requirements
-
-- Python 3.9.2 greater
-- Pillow module
-- Progress module
