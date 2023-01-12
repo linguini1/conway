@@ -12,7 +12,7 @@ SEED_FILE_NAME = "previous_seed.json"
 # Functions
 def add_vector(point1: Coordinates, point2: Coordinates) -> Coordinates:
 
-    """Returns the result of adding a vector to a coordinate pair."""
+    """Returns the result of adding two points."""
 
     x1, y1 = point1
     x2, y2 = point2
