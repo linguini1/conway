@@ -2,9 +2,10 @@
 __author__ = "Matteo Golin"
 
 # Imports
-from typing import Type
+from typing import Type, Optional
 from customtypes import GridDimension, Coordinates, GridField, Simulation
 from classes.cells import Cell
+from classes.seeds import Seed
 from utils import add_vector
 
 # Constants
@@ -25,11 +26,11 @@ class Grid:
             cell_type: Type[Cell],
             dimensions: GridDimension,
             epochs: int,
-            seed: list[Coordinates] = None,
+            seed: Optional[Seed] = None,
             continuous: bool = False,
     ):
         self.columns, self.rows = dimensions
-        self.seed: list[Coordinates] = seed
+        self.seed: Optional[Seed] = seed
         self.epochs: int = epochs
         self.cell_type: Type[Cell] = cell_type
         self.continuous: bool = continuous
@@ -42,8 +43,11 @@ class Grid:
         # Creates the default array
         array = [[self.cell_type() for _ in range(self.columns)] for _ in range(self.rows)]
 
+        if self.seed is None:
+            return []
+
         # Add seed
-        for coord in self.seed:
+        for coord in self.seed.coordinates:
             x, y = coord
             array[y][x] = self.cell_type(alive=True)
 

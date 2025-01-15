@@ -13,7 +13,7 @@ class ChaosSeed(Seed):
     """Seed that is randomly generated."""
 
     def __init__(self, cell_number: int, deviation: int = 3) -> None:
-        super().__init__()
+        super().__init__("Chaos")
 
         # Make random coordinates
         self.coordinates = []
@@ -28,7 +28,7 @@ class ChaosSeed(Seed):
 class MoreChaoticSeed(Seed):
 
     def __init__(self, cell_number: int, dimensions: Coordinates) -> None:
-        super().__init__()
+        super().__init__("More Chaotic")
 
         # Unpack dimensions
         columns, rows = dimensions

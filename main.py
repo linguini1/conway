@@ -11,7 +11,7 @@ from utils import export_seed, previous_seed, map_center, percentage_of_map
 from classes.cells import MazeCell, ClassicCell, FrostCell
 
 # Seeds
-from classes.seeds import ChaosSeed
+from classes.seeds import Seed
 
 # Constants
 CONFIG_FILE = "config.json"
@@ -23,19 +23,18 @@ def main():
     # Start parameters
     config = Config.from_json_file(CONFIG_FILE)
 
-    seed = ChaosSeed(
-        cell_number=percentage_of_map(10, config.dimensions),
-        deviation=9
-    ).translate(map_center(config.dimensions))
+    seed = Seed.from_plaintext( "./seeds/simkinsp60.cells")
+    seed.translate(map_center(config.dimensions))
+    print(seed)
 
     # Seed import and export
     #seed = previous_seed()
-    export_seed(seed)  # Export seed
+    export_seed(seed.coordinates)  # Export seed
 
     # Create game
     print("Starting grid generation...")
     grid = Grid(
-        cell_type=FrostCell,
+        cell_type=ClassicCell,
         dimensions=config.dimensions,
         seed=seed,
         epochs=config.epochs,

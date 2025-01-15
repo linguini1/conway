@@ -8,10 +8,10 @@ from classes.seeds.seed import Seed
 # Classes
 class PulsarSeed(Seed):
 
-    """Pulsar oscillator from the classic COGL."""
+    """Pulsar oscillator from the classic CGOL."""
 
     def __init__(self):
-        super().__init__()
+        super().__init__("Pulsar", wiki_link="https://conwaylife.com/wiki/Pulsar")
 
         self.coordinates = [
             (-2, 0), (-3, 0), (-4, 0),
@@ -23,10 +23,10 @@ class PulsarSeed(Seed):
 
 class BlinkerSeed(Seed):
 
-    """Blinker oscillator from the classic COGL."""
+    """Blinker oscillator from the classic CGOL."""
 
     def __init__(self):
-        super().__init__()
+        super().__init__("Blinker", wiki_link="https://conwaylife.com/wiki/Blinker")
 
         self.coordinates = [
             (-1, 0), (0, 0), (1, 0)
@@ -35,10 +35,10 @@ class BlinkerSeed(Seed):
 
 class ToadSeed(Seed):
 
-    """Toad oscillator from the classic COGL."""
+    """Toad oscillator from the classic CGOL."""
 
     def __init__(self):
-        super().__init__()
+        super().__init__("Toad", wiki_link="https://conwaylife.com/wiki/Toad")
 
         self.coordinates = [
             (-1, 0), (0, 0), (1, 0),
@@ -48,10 +48,10 @@ class ToadSeed(Seed):
 
 class BeaconSeed(Seed):
 
-    """Beacon oscillator from the classic COGL."""
+    """Beacon oscillator from the classic CGOL."""
 
     def __init__(self):
-        super().__init__()
+        super().__init__("Beacon", wiki_link="https://conwaylife.com/wiki/Beacon")
 
         self.coordinates = [
             (0, 0), (0, 1), (-1, 0), (-1, 1),
@@ -61,10 +61,10 @@ class BeaconSeed(Seed):
 
 class PentaDecathlonSeed(Seed):
 
-    """Penta-decathlon oscillator from the classic COGL."""
+    """Pentadecathlon oscillator from the classic CGOL."""
 
     def __init__(self):
-        super().__init__()
+        super().__init__("Pentadecathlon", wiki_link="https://conwaylife.com/wiki/Pentadecathlon")
 
         self.coordinates = [
             (-4, 0), (-3, 0), (-2, 1), (-2, -1), (-1, 0), (0, 0),
