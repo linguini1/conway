@@ -19,25 +19,6 @@ def add_vector(point1: Coordinates, point2: Coordinates) -> Coordinates:
 
     return x1 + x2, y1 + y2
 
-
-def export_seed(seed: list[Coordinates]) -> None:
-
-    """Exports the passed seed in JSON format."""
-
-    with open(SEED_FILE_NAME, 'w') as file:
-        json.dump(seed, file)
-
-
-def previous_seed() -> list[Coordinates]:
-
-    """Returns the previously used seed from the storage file."""
-
-    with open(SEED_FILE_NAME, 'r') as file:
-        data = json.load(file)
-
-    return [tuple(coordinate) for coordinate in data]
-
-
 def map_center(dimensions: tuple[int, int]) -> Coordinates:
 
     """Returns the (approximate) center of the map from its dimensions as x, y coordinates."""

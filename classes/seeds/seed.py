@@ -28,6 +28,7 @@ class Seed:
 
     @classmethod
     def from_plaintext(cls, filename: str) -> Self:
+        """Load CGOL Wiki plain-text files describing a seed."""
         with open(filename, "r") as file:
             name = file.readline().replace("!","").replace(".cells","").strip()
             file.readline() # Skip author

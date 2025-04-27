@@ -5,7 +5,7 @@ __author__ = "Matteo Golin"
 from classes.grid import Grid
 from classes.config import Config
 from classes.exporters import ImageExporter, GIFExporter
-from utils import export_seed, previous_seed, map_center, percentage_of_map
+from utils import map_center
 
 # Cells
 from classes.cells import MazeCell, ClassicCell, FrostCell
@@ -26,10 +26,6 @@ def main():
     seed = Seed.from_plaintext( "./seeds/simkinsp60.cells")
     seed.translate(map_center(config.dimensions))
     print(seed)
-
-    # Seed import and export
-    #seed = previous_seed()
-    export_seed(seed.coordinates)  # Export seed
 
     # Create game
     print("Starting grid generation...")
